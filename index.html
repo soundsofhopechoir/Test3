@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hymn Experience RSVP</title>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,9 +61,27 @@
     </div>
 
     <script type="text/javascript">
-        // Redirect to thank you page after form submission
-        document.querySelector('form').addEventListener('submit', function() {
-            window.location.href = 'thankyou.html'; // Redirect to thank you page
+        // Initialize EmailJS with your User ID
+        (function() {
+            emailjs.init('YOUR_USER_ID'); // Replace 'YOUR_USER_ID' with your actual EmailJS User ID
+        })();
+
+        // Handle form submission
+        document.getElementById('rsvp-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const name = document.getElementById('name').value;
+            const contact = document.getElementById('contact').value;
+
+            // Send the form data to EmailJS
+            emailjs.sendForm('service_b0efhdo', 'template_x6etkwj', this) // Use your Service ID and Template ID
+                .then(function(response) {
+                    alert('Confirmation received!');
+                    window.location.href = 'thankyou.html'; // Redirect to thank you page after submission
+                }, function(error) {
+                    console.log('Error sending email:', error);
+                    alert('Error in sending confirmation');
+                });
         });
     </script>
 </body>
