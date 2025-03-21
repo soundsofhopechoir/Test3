@@ -47,15 +47,23 @@
     <div class="container">
         <img src="Hymn Experience.png" alt="Hymn Experience Event">
         <h1>You're Invited to Hymn Experience</h1>
-        <p>Join us for a night of worship and praise!</p>
+        <p>Join us for an evening of worship and praise!</p>
         <p><strong>Date:</strong> April 18, 2025 <br> <strong>Time:</strong> 4-7 PM <br> <strong>Venue:</strong> Martyrs' Church Nateete</p>
 
         <!-- RSVP Form -->
         <form action="https://formspree.io/f/xrbpplbj" method="POST"> <!-- Your Formspree Form URL -->
             <input type="text" name="name" id="name" class="form-input" placeholder="Your Name" required>
             <input type="text" name="contact" id="contact" class="form-input" placeholder="Your Contact" required>
+            <input type="text" name="favorite_hymn" id="favorite_hymn" class="form-input" placeholder="Your Favorite Hymn" required>
             <button type="submit" class="rsvp-btn">Confirm Attendance</button>
         </form>
     </div>
+
+    <script type="text/javascript">
+        // Redirect to thank you page after form submission
+        document.querySelector('form').addEventListener('submit', function() {
+            window.location.href = 'thankyou.html'; // Redirect to thank you page
+        });
+    </script>
 </body>
 </html>
