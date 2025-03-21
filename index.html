@@ -4,69 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hymn Experience RSVP</title>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <style>
-        /* General body style */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: linear-gradient(135deg, #00aaff, #0066cc); /* 3D background */
-            padding: 40px 0;
-            color: white;
+            background-color: #f4f4f4;
+            padding: 20px;
         }
-
-        /* Container for the form */
         .container {
-            background: rgba(255, 255, 255, 0.9); /* Slight transparency for a cool effect */
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
             max-width: 600px;
             margin: auto;
-            backdrop-filter: blur(10px); /* Blurring the background behind the container */
         }
-
         img {
             width: 100%;
             border-radius: 10px;
         }
-
         h1 {
             color: #333;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
         }
-
-        /* Styling for form inputs and button */
-        .form-input {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            font-size: 1rem;
-        }
-
         .rsvp-btn {
-            background-color: #ff6347;
+            background-color: #008CBA;
             color: white;
-            padding: 15px 30px;
-            font-size: 1.2rem;
+            padding: 15px 25px;
+            font-size: 18px;
             border: none;
             cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
         }
-
         .rsvp-btn:hover {
-            background-color: #ff4500;
-            transform: scale(1.05);
-        }
-
-        .footer {
-            font-size: 1rem;
-            margin-top: 30px;
+            background-color: #005f73;
         }
     </style>
 </head>
@@ -84,10 +57,6 @@
             <input type="text" name="favorite_hymn" id="favorite_hymn" class="form-input" placeholder="Your Favorite Hymn" required>
             <button type="submit" class="rsvp-btn">Confirm Attendance</button>
         </form>
-
-        <div class="footer">
-            <p>We are thrilled to have you with us! See you soon.</p>
-        </div>
     </div>
 </body>
 </html>
