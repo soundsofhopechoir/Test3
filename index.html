@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hymn Experience Invitation</title>
+    <title>Hymn Experience RSVP</title>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,28 +42,46 @@
         .rsvp-btn:hover {
             background-color: #005f73;
         }
-        .form-input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <img src="Hymn Experience.png" alt="Hymn Experience Event">
         <h1>You're Invited to Hymn Experience</h1>
-        <p>Join us for an evening of worship and praise!</p>
+        <p>Join us for a night of worship and praise!</p>
         <p><strong>Date:</strong> April 18, 2025 <br> <strong>Time:</strong> 4-7 PM <br> <strong>Venue:</strong> Martyrs' Church Nateete</p>
-        
+
         <!-- RSVP Form -->
-        <form action="send_rsvp.php" method="POST">
-            <input type="text" name="name" class="form-input" placeholder="Your Name" required>
-            <input type="text" name="contact" class="form-input" placeholder="Your Contact" required>
+        <form id="rsvp-form">
+            <input type="text" name="name" id="name" class="form-input" placeholder="Your Name" required>
+            <input type="text" name="contact" id="contact" class="form-input" placeholder="Your Contact" required>
             <button type="submit" class="rsvp-btn">Confirm Attendance</button>
         </form>
     </div>
+
+    <script type="text/javascript">
+        // Initialize EmailJS with your User ID
+        (function() {
+            emailjs.init('YOUR_USER_ID'); // Replace 'YOUR_USER_ID' with your actual EmailJS User ID
+        })();
+
+        // Handle form submission
+        document.getElementById('rsvp-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const name = document.getElementById('name').value;
+            const contact = document.getElementById('contact').value;
+
+            // Send the form data to EmailJS
+            emailjs.sendForm('service_b0efhdo', 'YOUR_TEMPLATE_ID', this) // Use your Service ID and Template ID
+                .then(function(response) {
+                    alert('Confirmation received!');
+                    window.location.href = 'thankyou.html'; // Redirect to thank you page after submission
+                }, function(error) {
+                    console.log('Error sending email:', error);
+                    alert('Error in sending confirmation');
+                });
+        });
+    </script>
 </body>
 </html>
