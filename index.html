@@ -41,15 +41,28 @@
         .rsvp-btn:hover {
             background-color: #005f73;
         }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <img src="Hymn Experience.png" alt="Hymn Experience Event">
         <h1>You're Invited to Hymn Experience</h1>
-        <p>Join us for a night of worship and praise!</p>
+        <p>Join us for an evening of worship and praise!</p>
         <p><strong>Date:</strong> April 18, 2025 <br> <strong>Time:</strong> 4-7 PM <br> <strong>Venue:</strong> Martyrs' Church Nateete</p>
-        <a href="thankyou.html" class="rsvp-btn">Confirm Attendance</a>
+        
+        <!-- RSVP Form -->
+        <form action="send_rsvp.php" method="POST">
+            <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+            <input type="text" name="contact" class="form-input" placeholder="Your Contact" required>
+            <button type="submit" class="rsvp-btn">Confirm Attendance</button>
+        </form>
     </div>
 </body>
 </html>
