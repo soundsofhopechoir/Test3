@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hymn Experience RSVP</title>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <style>
         /* General body style */
         body {
@@ -78,7 +77,7 @@
         <p><strong>Date:</strong> April 18, 2025 <br> <strong>Time:</strong> 4-7 PM <br> <strong>Venue:</strong> Martyrs' Church Nateete</p>
 
         <!-- RSVP Form -->
-        <form id="rsvp-form">
+        <form action="https://formspree.io/f/xrbpplbj" method="POST">
             <input type="text" name="name" id="name" class="form-input" placeholder="Your Name" required>
             <input type="text" name="contact" id="contact" class="form-input" placeholder="Your Contact" required>
             <input type="text" name="favorite_hymn" id="favorite_hymn" class="form-input" placeholder="Your Favorite Hymn" required>
@@ -89,30 +88,5 @@
             <p>We are thrilled to have you with us! See you soon.</p>
         </div>
     </div>
-
-    <script type="text/javascript">
-        // Initialize EmailJS with your User ID
-        emailjs.init('YOUR_USER_ID'); // Replace 'YOUR_USER_ID' with your actual EmailJS User ID
-
-        // Handle form submission
-        document.getElementById('rsvp-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            const name = document.getElementById('name').value;
-            const contact = document.getElementById('contact').value;
-            const favorite_hymn = document.getElementById('favorite_hymn').value;
-
-            // Send the form data to EmailJS
-            emailjs.sendForm('service_b0efhdo', 'template_x6etkwj', this) // Use your Service ID and Template ID
-                .then(function(response) {
-                    console.log('Email sent successfully:', response);
-                    alert('Confirmation received!');
-                    window.location.href = 'thankyou.html'; // Redirect to thank you page after submission
-                }, function(error) {
-                    console.log('Error sending email:', error);
-                    alert('Error in sending confirmation');
-                });
-        });
-    </script>
 </body>
 </html>
